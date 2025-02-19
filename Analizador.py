@@ -1,26 +1,7 @@
 import json
 import asyncio
 import requests
-from telegram import Bot
 
-# Configuración del bot de Telegram
-TOKEN = "7063485069:AAG9M4xLIuNdplXOUn6SGsxjMyzT66jAAeA"  # Pon tu token aquí
-CHAT_ID = "-1002142100260"  # ID del grupo
-TOPIC_ID = 4829  # ID del tema en el grupo
-bot = Bot(token=TOKEN)
-
-# 📌 Función asíncrona para enviar mensajes a Telegram
-async def enviar_mensaje_telegram(chat_id, topic_id, mensaje):
-    try:
-        await bot.send_message(
-            chat_id=chat_id,
-            text=mensaje,
-            parse_mode='HTML',
-            message_thread_id=topic_id
-        )
-        print(f"Mensaje enviado correctamente al tema {topic_id} del grupo {chat_id}")
-    except Exception as e:
-        print(f"No se pudo enviar el mensaje a Telegram: {e}")
 
 # 📌 Función para leer el archivo JSON
 def cargar_libro_ordenes(ruta_archivo="order_books.json"):
@@ -129,7 +110,7 @@ async def analizar_libro_ordenes():
                 mensaje += f"Shock: {most_common_price:.6f} | Volumen: {volumen_formateado} \n"
 
             if mensaje:
-                await enviar_mensaje_telegram(CHAT_ID, TOPIC_ID, mensaje)
+                print(mensaje)
 
 
         print("Análisis completado. Esperando 30 minutos para el próximo análisis.")
