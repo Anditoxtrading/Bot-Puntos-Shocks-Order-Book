@@ -113,7 +113,7 @@ async def analizar_libro_ordenes():
                 print(mensaje)
 
 
-        print("Análisis completado. Esperando 30 minutos para el próximo análisis.")
+        print("Análisis completado.")
         await asyncio.sleep(1800)  # Esperar 30 minutos antes de otro análisis
 
 # 📌 Iniciar el análisis en un bucle asíncrono
